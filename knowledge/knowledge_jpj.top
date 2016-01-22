@@ -1,0 +1,171 @@
+topic: ~knowledge()
+language: jpj
+
+#食べ物の分類
+dynamic:fishKnow
+dynamic:meatKnow
+dynamic:vegetableKnow
+dynamic:fruitsKnow
+dynamic:serialKnow
+dynamic:notCategorizeKnow
+
+#旬の分類
+dynamic:frtHalfJanKnow
+dynamic:sndHalfJanKnow
+dynamic:frtHalfFebKnow
+dynamic:sndHalfFebKnow
+dynamic:frtHalfMchKnow
+dynamic:sndHalfMchKnow
+dynamic:frtHalfAprKnow
+dynamic:sndHalfAprKnow
+dynamic:frtHalfMayKnow
+dynamic:sndHalfMayKnow
+dynamic:frtHalfJneKnow
+dynamic:sndHalfJneKnow
+dynamic:frtHalfJlyKnow
+dynamic:sndHalfJlyKnow
+dynamic:frtHalfAgtKnow
+dynamic:sndHalfAgtKnow
+dynamic:frtHalfStrKnow
+dynamic:sndHalfStrKnow
+dynamic:frtHalfOctKnow
+dynamic:sndHalfOctKnow
+dynamic:frtHalfNvrKnow
+dynamic:sndHalfNvrKnow
+dynamic:frtHalfDcrKnow
+dynamic:sndHalfDcrKnow
+dynamic:yetCheckSeasonKnow
+dynamic:seasonInKnow
+
+#concept同士であれば入れ子構造ができます。
+#concept:(fish1)　[さば　たい]
+#concept:(fruits1)　[ばなな　りんご]
+#concept:(foodAll)　[~fish1 ~fruits1]
+#u:(~foodAll で検索したい) 覚えるね。$onBridgeMethod="recordSearchKey"
+
+#conceptとdynamicの入れ子は実機でのみできません。ですので↓は不可です。
+
+#dynamic:fish
+#dynamic:vegetable
+#dynamic:fruits
+#dynamic:serial
+#dynamic:notCategorize
+
+#concept:(foodAll)[~fish　~vegetable　~fruits　~serial　~notCategorize]
+#u:(~foodAll で検索したい) 覚えるね。$onBridgeMethod="recordSearchKey"
+
+#アプリ終了
+u:(調べてくれてありがとう) また使ってください! $onBridgeMethod="appClose"
+
+#アプリ終了@開発
+u:(このアプリ終了) 了解! $onBridgeMethod="appClose"
+
+#聞き取り中断@開発
+u:(聞き取り中断) 了解。聞きとり中断。 $onBridgeMethod="hearingStop"
+
+#聞き取り再開@開発・実際共通
+#Pepperちゃんのタブレットボタンを押して!
+#Pepperちゃんの後ろバンパーをPush!
+
+#聞き取り中断@開発
+u:(しばらくタブレットを使うよ) はーい。聞きとりを中断します。 $onBridgeMethod="hearingStop"
+
+#感情ログの表示／非表示
+u:(感情ログをみせて) はーい。感情ログを更新します。 $onBridgeMethod="emotionViewOn"
+u:(感情ログを更新しないで) はーい。更新をストップします。 $onBridgeMethod="emotionViewOff"
+
+#マニュアルを表示
+u:(ヘルプを表示して) ヘルプを表示します。 $onBridgeMethod="viewHelp"
+
+#一般的にScopeが発生していないときに理解できなければごめんなさいするのが自然では？
+u:("e:Dialog/Fallback") うーんと、 $onBridgeMethod="dialogException" 
+u:("e:Dialog/NotUnderstood") うーんと、 $onBridgeMethod="dialogException"
+
+#検索語を覚えます。
+u:(~fishKnow で検索したい) 覚えます。$onBridgeMethod="recordSearchKey"
+u:(~vegetableKnow で検索したい) 覚えます。$onBridgeMethod="recordSearchKey"
+u:(~meatKnow で検索したい) 覚えます。$onBridgeMethod="recordSearchKey"
+u:(~fruitsKnow で検索したい) 覚えます。$onBridgeMethod="recordSearchKey"
+u:(~notCategorizeKnow で検索したい) 覚えます。$onBridgeMethod="recordSearchKey"
+
+#言いなおしは無条件で覚える
+u:(これも食材だよ) え～?ほんと？もう一度教えてください。
+    u1:("e:Dialog/Understood") そーなんだー それも検索候補に入れます。 $onBridgeMethod="recordSearchKey"
+    u1:("e:Dialog/NotUnderstood") そーなんだー それも検索候補に入れます。 $onBridgeMethod="recordSearchKey"
+    u1:("e:Dialog/Fallback") そーなんだー  それも検索候補に入れます。 $onBridgeMethod="recordSearchKey"
+
+#検索語を復唱します。
+u:(検索しようとしているのはなんだっけ) 思い出します。 $onBridgeMethod="callSearchKey"
+    
+#食材を覚えているかどうかの確認
+u:(~fishKnow は食材ですか) それはお魚でしょ？
+u:(~vegetableKnow は食材ですか) 栄養たっぷり野菜です！
+u:(~meatKnow は食材ですか) それはおいしいお肉だ!
+u:(~fruitsKnow は食材ですか) 大好きフルーツです。
+u:(~serialKnow は食材ですか) 元気の素の穀物です。
+u:(~notCategorizeKnow は食材ですか) 食べ物だとは知っているけど。あんまり詳しく知りません。
+    
+#食材の旬の会話
+u:(1月上旬のおすすめは) ~frtHalfJanKnow　です。
+u:(1月下旬のおすすめは) ~sndHalfJanKnow　です。
+u:(2月上旬のおすすめは) ~frtHalfFebKnow　です。
+u:(2月下旬のおすすめは) ~sndHalfFebKnow　です。
+u:(3月上旬のおすすめは) ~frtHalfMchKnow　です。
+u:(3月下旬のおすすめは) ~sndHalfMchKnow　です。
+u:(4月上旬のおすすめは) ~frtHalfAprKnow　です。
+u:(4月下旬のおすすめは) ~sndHalfAprKnow　です。
+u:(5月上旬のおすすめは) ~frtHalfMayKnow　です。
+u:(5月下旬のおすすめは) ~sndHalfMayKnow　です。
+u:(6月上旬のおすすめは) ~frtHalfJneKnow　です。
+u:(6月下旬のおすすめは) ~sndHalfJneKnow　です。
+u:(7月上旬のおすすめは) ~frtHalfJlyKnow　です。
+u:(7月下旬のおすすめは) ~sndHalfJlyKnow　です。
+u:(8月上旬のおすすめは) ~frtHalfAgtKnow　です。
+u:(8月下旬のおすすめは) ~sndHalfAgtKnow　です。
+u:(9月上旬のおすすめは) ~frtHalfStrKnow　です。
+u:(9月下旬のおすすめは) ~sndHalfStrKnow　です。
+u:(10月上旬のおすすめは) ~frtHalfOctKnow　です。
+u:(10月下旬のおすすめは) ~sndHalfOctKnow　です。
+u:(11月上旬のおすすめは) ~frtHalfNvrKnow　です。
+u:(11月下旬のおすすめは) ~sndHalfNvrKnow　です。
+u:(12月上旬のおすすめは) ~frtHalfDcrKnow　です。
+u:(12月下旬のおすすめは) ~sndHalfDcrKnow　です。
+
+u:(~frtHalfJanKnow の旬はいつですか)　1月上旬です。
+u:(~sndHalfJanKnow の旬はいつですか)　1月下旬です。
+u:(~frtHalfFebKnow の旬はいつですか)　2月上旬です。
+u:(~sndHalfFebKnow の旬はいつですか)　2月下旬です。
+u:(~frtHalfMchKnow の旬はいつですか)　3月上旬です。
+u:(~sndHalfMchKnow　の旬はいつですか)　3月下旬です。
+u:(~frtHalfAprKnow の旬はいつですか)　4月上旬です。
+u:(~sndHalfAprKnow の旬はいつですか)　4月下旬です。
+u:(~frtHalfMayKnow の旬はいつですか)　5月上旬です。
+u:(~sndHalfMayKnow の旬はいつですか)　5月下旬です。
+u:(~frtHalfJneKnow の旬はいつですか)　6月上旬です。
+u:(~sndHalfJneKnow の旬はいつですか)　6月下旬です。
+u:(~frtHalfJlyKnow の旬はいつですか)　7月上旬です。
+u:(~sndHalfJlyKnow の旬はいつですか)　7月下旬です。
+u:(~frtHalfAgtKnow の旬はいつですか)　8月上旬です。
+u:(~sndHalfAgtKnow の旬はいつですか)　8月下旬です。
+u:(~frtHalfStrKnow の旬はいつですか)　9月上旬です。
+u:(~sndHalfStrKnow の旬はいつですか)　9月下旬です。
+u:(~frtHalfOctKnow の旬はいつですか)　10月上旬です。
+u:(~sndHalfOctKnow の旬はいつですか)　10月下旬です。
+u:(~frtHalfNvrKnow の旬はいつですか)　11月上旬です。
+u:(~sndHalfNvrKnow の旬はいつですか)　11月下旬です。
+u:(~frtHalfDcrKnow の旬はいつですか)　12月上旬です。
+u:(~sndHalfDcrKnow の旬はいつですか)　12月下旬です。
+u:(今が旬の食べ物はなんですか) ~seasonInKnow　です。
+
+#タブレット入力に移行
+u:(食材を教えてあげる) 入力画面を表示します。 $onBridgeMethod="viewTempRegistration"
+u:(カテゴリの未登録リスト) カテゴリをリストを表示します。 $onBridgeMethod="viewVarationList"
+u:(旬の未登録リスト) 旬のリストを表示するします。 $onBridgeMethod="viewSeasonList"
+
+#タブレットから動作を依頼するので基本的には使いません。
+u:(今のデータで仮登録) 仮登録します。 $onBridgeMethod="interimRegistration"
+u:(カテゴリを本登録) 本登録します。 $onBridgeMethod="registrationRealVariation"
+u:(旬を本登録) 本登録します。 $onBridgeMethod="registrationRealSeason"
+
+#クックパッドを利用します。
+u:(メニューを探したい) 別ウインドウでクックパッドに移動します。$onBridgeMethod="searchSite"

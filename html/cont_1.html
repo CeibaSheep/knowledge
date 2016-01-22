@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>メニューサポート</title>
+<link rel="stylesheet" href="pepper_qi020.css" type="text/css" />
+
+</head>
+<body style="overflow-y:scroll;">
+	<h3>食材の登録をします</h3>
+	食べ物の名前：<input type="text" id="foodsName"><br />
+
+	食べ物の分類：
+	<select id="foodsVariation">
+		<option value="野菜">野菜</option>
+		<option value="魚">魚</option>
+		<option value="肉">肉</option>
+		<option value="果物">果物</option>
+		<option value="穀物">穀物</option>
+		<option value="未分類">未分類</option>
+	</select>
+	<br />
+	旬の時期：
+	<select id="foodsSeason">
+		<option value="01月上旬">01月上旬</option>
+		<option value="01月下旬">01月下旬</option>
+		<option value="02月上旬">02月上旬</option>
+		<option value="02月下旬">02月下旬</option>
+		<option value="03月上旬">03月上旬</option>
+		<option value="03月下旬">03月下旬</option>
+		<option value="04月上旬">04月上旬</option>
+		<option value="04月下旬">04月下旬</option>
+		<option value="05月上旬">05月上旬</option>
+		<option value="05月下旬">05月下旬</option>
+		<option value="06月上旬">06月上旬</option>
+		<option value="06月下旬">06月下旬</option>
+		<option value="07月上旬">07月上旬</option>
+		<option value="07月下旬">07月下旬</option>
+		<option value="08月上旬">08月上旬</option>
+		<option value="08月下旬">08月下旬</option>
+		<option value="09月上旬">09月上旬</option>
+		<option value="09月下旬">09月下旬</option>
+		<option value="10月上旬">10月上旬</option>
+		<option value="10月下旬">10月下旬</option>
+		<option value="11月上旬">11月上旬</option>
+		<option value="11月下旬">11月下旬</option>
+		<option value="12月上旬">12月上旬</option>
+		<option value="12月下旬">12月下旬</option>
+		<option value="わからない">わからない</option>
+	</select><br />
+
+	<button  id="interimRegistration" onclick="parent.sendPepperFromTablet('sendPepperMemory_foodsName_ValueElement{@@@}sendPepperMemory_foodsVariation_ValueElement{@@@}sendPepperMemory_foodsSeason_ValueElement{@@@}sendPepperGoMethod_interimRegistration_NoElement')">この食べ物を覚えて!</button><br />
+
+</body>
+</html>

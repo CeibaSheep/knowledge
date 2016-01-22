@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>メニューサポート</title>
+<link rel="stylesheet" href="pepper_qi020.css" type="text/css" />
+<link rel="stylesheet" href="knowledge_table.css" type="text/css" />
+
+<script type="text/javascript">
+
+function dataCopyLine(buttonLine) {
+	lineNum = (buttonLine.id).replace("line","");
+	//alert(lineNum);
+	
+	nameId = "foodsName" + lineNum;
+	//variationId = "foodsVariation" + lineNum;
+	seasonId = "foodsSeason" + lineNum;
+	name = document.getElementById(nameId).innerText;
+	season = document.getElementById(seasonId).innerText;
+	
+	document.getElementById("foodsName").value = name;
+	document.getElementById("foodsSeason").value = season
+		
+	document.getElementById("copyName").value = name;
+	document.getElementById("copySeason").value = season;
+}
+
+</script>
+</head>
+<body>
+	<h3>食材登録(旬の時期)</h3>
+	仮登録中食材(旬の時期)&nbsp;&nbsp;&nbsp;<button id="refleshListSeason" onclick="parent.sendPepperFromTablet('sendPepperGoMethod_viewSeasonList_viewSeasonList')">一時リストを呼び出し</button>
+	<table id="viewTable" class='viewTable'>
+	<tr><th class="viewCell">名前</th><th class="viewCell">旬の時期</th><th class="viewCell">&nbsp;</th></tr>
+	<tr><td class="viewCell">(例)だいこん</td><td class="viewCell">02月上旬</td><td class="viewCell"><button disabled="disabled">押すと詳細表示</button></td></tr>
+	</table>
+	<hr>
+	<div id="dataEditArea">
+	旬の時期：<br />
+	名前：<input type="text" id="foodsName"><br />
+	<select id="foodsSeason">
+		<option value="01月上旬">01月上旬</option>
+		<option value="01月下旬">01月下旬</option>
+		<option value="02月上旬">02月上旬</option>
+		<option value="02月下旬">02月下旬</option>
+		<option value="03月上旬">03月上旬</option>
+		<option value="03月下旬">03月下旬</option>
+		<option value="04月上旬">04月上旬</option>
+		<option value="04月下旬">04月下旬</option>
+		<option value="05月上旬">05月上旬</option>
+		<option value="05月下旬">05月下旬</option>
+		<option value="06月上旬">06月上旬</option>
+		<option value="06月下旬">06月下旬</option>
+		<option value="07月上旬">07月上旬</option>
+		<option value="07月下旬">07月下旬</option>
+		<option value="08月上旬">08月上旬</option>
+		<option value="08月下旬">08月下旬</option>
+		<option value="09月上旬">09月上旬</option>
+		<option value="09月下旬">09月下旬</option>
+		<option value="10月上旬">10月上旬</option>
+		<option value="10月下旬">10月下旬</option>
+		<option value="11月上旬">11月上旬</option>
+		<option value="11月下旬">11月下旬</option>
+		<option value="12月上旬">12月上旬</option>
+		<option value="12月下旬">12月下旬</option>
+		<option value="わからない">わからない</option>
+	</select><br />
+
+	<button  id="registrationRealSeason" onclick="parent.sendPepperFromTablet('sendPepperMemory_copyName_ValueElement{@@@}sendPepperMemory_copySeason_ValueElement{@@@}sendPepperMemory_foodsName_ValueElement{@@@}sendPepperMemory_foodsSeason_ValueElement{@@@}sendPepperGoMethod_registrationRealSeason_NoElement')">この食べ物を語彙に追加</button>
+	<br /><input type="text" id="copyName">
+	<input type="text" id="copySeason">
+	
+	</div>
+</body>
+</html>

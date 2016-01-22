@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package uuid="knowledge-e935db" version="0.0.0">
+ <names>
+  <name lang="en_US">knowledge</name>
+  <name lang="ja_JP">動的語彙テスト</name>
+ </names>
+ <descriptions>
+  <description lang="ja_JP">動的な語彙のテストです。検索語を覚えてクックパッドを検索します#ライフ#</description>
+ </descriptions>
+ <supportedLanguages>
+  <language>en_US</language>
+  <language>ja_JP</language>
+ </supportedLanguages>
+ <descriptionLanguages>
+  <language>en_US</language>
+  <language>ja_JP</language>
+ </descriptionLanguages>
+ <contents>
+  <behaviorContent path="behavior_1">
+   <userRequestable/>
+   <nature>interactive</nature>
+   <triggerSentences>
+    <sentence lang="ja_JP">動的語彙のテスト</sentence>
+   </triggerSentences>
+   <permissions/>
+  </behaviorContent>
+ </contents>
+ <requirements>
+  <naoqiRequirement minVersion="2.4"/>
+  <robotRequirement model="JULIETTE"/>
+ </requirements>
+</package>

@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>base</title>
+<link rel="stylesheet" href="pepper_qi020.css" type="text/css" />
+
+</head>
+<body>
+	<h3>スタートページ</h3>
+		【アプリケーション】<span id="apliName">Knowledge(動的語彙テスト)</span><br />
+		【簡単な使い方】<br />
+		<div id="apliManual" class="apli_manual">
+			♪「 (食材)で検索したい」というと、検索したい語を覚えます。<br />
+			♪「これも食材だよ」というと、次に話した言葉を無条件で検索語に加えます。<br />
+			♪「メニューを探したい」というと、タブレットの別ウインドウでクックパッドに移動します。<br />
+			♪「ヘルプを表示して」というと、ヘルプを表示します。<br />
+			♪「調べてくれてありがとう」というと、この語彙テストアプリケーションを終了します。<br />
+		</div>
+		<button id="sendPepperSayLine_apliManual_TextElementButton" onclick="parent.sendPepperFromTablet(this)">１項目ずつ読み上げます</button>
+		<button id="sendPepperSay_apliManual_TextElementButton" onclick="parent.sendPepperFromTablet(this)">すべて読み上げます</button>
+</body>
+</html>

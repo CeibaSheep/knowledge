@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>メニューサポート</title>
+<link rel="stylesheet" href="pepper_qi020.css" type="text/css" />
+<link rel="stylesheet" href="knowledge_table.css" type="text/css" />
+
+<script type="text/javascript">
+
+function dataCopyLine(buttonLine) {
+	lineNum = (buttonLine.id).replace("line","");
+	
+	nameId = "foodsName" + lineNum;
+	variationId = "foodsVariation" + lineNum;
+	alert(nameId);
+	name = document.getElementById(nameId).innerText;
+	alert(name);
+	variation = document.getElementById(variationId).innerText;
+	alert(variation);
+	
+	document.getElementById("foodsName").value = name;
+	document.getElementById("foodsVariation").value = variation;
+	
+	document.getElementById("copyName").value = name;
+	document.getElementById("copyVariation").value = variation;
+}
+
+</script>
+</head>
+<body>
+	<h3>食材登録(分類)</h3>
+	仮食材登録リスト(分類)<button id="refleshListVariation" onclick="parent.sendPepperFromTablet('sendPepperGoMethod_viewVarationList_viewVarationList')">一時リストを呼び出し</button>
+	<table id="viewTable" class='viewTable'>
+	<tr><th class="viewCell">名前</th><th class="viewCell">カテゴリ</th><th class="viewCell">&nbsp;</th></tr>
+	<tr><td class="viewCell">(例)だいこん</td><td class="viewCell">野菜</td><td class="viewCell"><button disabled="disabled">押すと詳細表示</button></td></tr>
+
+	</table>
+	
+	<hr>
+	<div id="dataEditArea">
+	食べ物の分類：<br />
+	名前：<input type="text" id="foodsName"><br />
+	<select id="foodsVariation">
+		<option value="野菜">野菜</option>
+		<option value="魚">魚</option>
+		<option value="肉">肉</option>
+		<option value="果物">果物</option>
+		<option value="穀物">穀物</option>
+		<option value="未分類">未分類</option>
+	</select>
+	<br />
+	<button id="registrationRealVariation" onclick="parent.sendPepperFromTablet('sendPepperMemory_copyName_ValueElement{@@@}sendPepperMemory_copyVariation_ValueElement{@@@}sendPepperMemory_foodsName_ValueElement{@@@}sendPepperMemory_foodsVariation_ValueElement{@@@}sendPepperGoMethod_registrationRealVariation_NoElement')">この食べ物を語彙に追加</button>
+	<br /><input type="text" id="copyName">
+	<input type="text" id="copyVariation">
+	</div>
+</body>
+</html>

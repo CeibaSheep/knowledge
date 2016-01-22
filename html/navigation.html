@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>base</title>
+<link rel="stylesheet" href="pepper_qi020.css" type="text/css" />
+</head>
+<body style="overflow-y:scroll;">
+アプリケーション名<br />
+<button id="startHtmlButton" onclick="parent.buttonAnchor('start.html')">最初のページ</button><br>
+<button id="registTempHtmlButton" onclick="parent.buttonAnchor('cont_1.html')">仮登録</button><br>
+<button id="registVariationHtmlButton" onclick="parent.buttonAnchor('cont_3.html')">カテゴリを登録</button><br>
+<button id="registSeasonHtmlButton" onclick="parent.buttonAnchor('cont_4.html')">旬の時期を登録</button><br>
+<button id="searchHtmlButton" onclick="parent.buttonAnchorNew(document.getElementById('searchUrl').value)">レシピ検索!</button><br>
+<div style='display: inline;'>
+	リンク用隠しURL入力窓
+	<input type="text" id="searchUrl" value="http://www.yahoo.co.jp/"> 
+</div>
+<br />&nbsp;<br />
+<button id="helpHtmlButton" onclick="parent.buttonAnchor('help.html')">ヘルプ</button><br>
+
+
+</body>
+</html>
